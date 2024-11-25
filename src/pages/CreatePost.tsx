@@ -1,8 +1,21 @@
 import { Link } from 'react-router-dom'
 import { Button } from '../components/ui/button'
 import PostForm from '../components/PostForm'
+import { useDispatch } from 'react-redux'
+import { addPost } from '../store/slices/postSlices'
 
-const CreatePost = () => (
+const CreatePost = () => {
+    
+    const dispatch = useDispatch()
+
+    const submitData = ( { title, excerpt }: { title: string, excerpt: string } )=>{
+
+        console.log(title,excerpt)
+        dispatch(addPost(title,excerpt))
+
+    }
+    
+    return (
     <div className="container mx-auto py-8">
 
         <div className="flex justify-between">
@@ -20,10 +33,10 @@ const CreatePost = () => (
         </div>
 
        <div className='w-[600px] mx-auto mt-10'>
-        <PostForm />
+        <PostForm submitData={submitData} />
        </div>
 
     </div>
-)
+)}
 
 export default CreatePost
