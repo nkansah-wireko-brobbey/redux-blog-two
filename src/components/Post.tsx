@@ -4,7 +4,7 @@ import type { Post } from '../interfaces/postInterface'
 
 const Post = ({post}:{post: Post}) => {
   return (
-    <div> <Card key={post.id} className='bg-inherit text-inherit'>
+    <div><Card key={post.id} className='bg-inherit text-inherit'>
     <CardHeader>
       <CardTitle>{post.title}</CardTitle>
     </CardHeader>
